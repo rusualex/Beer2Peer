@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    private int id;
+    private static int id = 0;
+    private String email;
     private String name;
     private String password;
     private int age;
@@ -14,17 +15,15 @@ public class User {
     private String profilPicture;
     private double rating;
 
-    public User(int id, String name, String password, int age,
-                String[] interests, String profilPicture, double rating,
-                String description) {
-        this.id = id;
+    public User(String email, String name, String password, int age,
+                String[] interests, String profilPicture){
+        id++;
+        this.email = email;
         this.name = name;
         this.password = password;
         this.age = age;
         this.interests = interests;
         this.profilPicture = profilPicture;
-        this.rating = rating;
-        this.description = description;
         this.createdEvents = new ArrayList<>();
         this.joinedEvents =  new ArrayList<>();
     }
@@ -45,6 +44,15 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 
     public String getPassword() {
         return password;

@@ -8,6 +8,8 @@ public class Beer2Peer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_beer2_peer);
+        setContentView(R.layout.activity_beer2_peer);
+
+
     }
 }
