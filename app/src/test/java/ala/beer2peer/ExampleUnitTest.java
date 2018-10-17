@@ -2,6 +2,11 @@ package ala.beer2peer;
 
 import org.junit.Test;
 
+import ala.beer2peer.model.User;
+import ala.beer2peer.repo.UnitOfWork;
+import ala.beer2peer.services.LogInService;
+import ala.beer2peer.services.RegisterService;
+
 import static org.junit.Assert.*;
 
 /**
@@ -12,6 +17,22 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        User user = new User("dasdsad", "dadsad","dasdsada",12,new String[]{"a","b"},"aaaa");
+        UnitOfWork uow = new UnitOfWork();
+        //uow.getUserRepo().insertUser(user);
+        User user2 = new User("dasdsad", "fdgtret","dasdsada",12,new String[]{"a","b"},"aaaa");
+        //uow.getUserRepo().insertUser(user2);
+
+        RegisterService rs = new RegisterService(uow);
+        assertEquals(rs.Register(user),true);
+        assertEquals(rs.Register(user),false);
+        assertEquals(rs.Register(user2),true);
+
+        LogInService ls = new LogInService(uow);
+        User result = ls.logIn("dasdsad","dasdsada");
+        assertEquals(result,user);
+
+        assertEquals(uow.getUserRepo().getUsers().size(),5);
+
     }
 }

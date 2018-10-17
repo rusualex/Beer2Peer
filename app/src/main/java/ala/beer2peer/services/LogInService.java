@@ -7,8 +7,8 @@ import ala.beer2peer.repo_interface.UserRepoInterface;
 
 public class LogInService {
     private UnitOfWork unitOfWork;
-    public LogInService(){
-        this.unitOfWork = new UnitOfWork();
+    public LogInService(UnitOfWork unitOfWork){
+        this.unitOfWork = unitOfWork;
     }
 
     public User logIn(String email, String password){

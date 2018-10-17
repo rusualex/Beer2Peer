@@ -1,7 +1,7 @@
 package ala.beer2peer.model;
 
 public class Event {
-    private int id;
+    private static int id;
     private String name;
     private String locationURL;
     private String type;
@@ -9,8 +9,8 @@ public class Event {
     private User organizer;
     private User buddy;
 
-    public Event(int id, String name, String locationURL, String type, String date, User organizer, User buddy) {
-        this.id = id;
+    public Event(String name, String locationURL, String type, String date, User organizer, User buddy) {
+        id++;
         this.name = name;
         this.locationURL = locationURL;
         this.type = type;

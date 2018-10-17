@@ -6,8 +6,8 @@ import ala.beer2peer.repo.UnitOfWork;
 public class RegisterService {
     private UnitOfWork unitOfWork;
 
-    public RegisterService(){
-        unitOfWork = new UnitOfWork();
+    public RegisterService(UnitOfWork unitOfWork){
+        this.unitOfWork = unitOfWork;
     }
 
     public boolean Register(User user){
@@ -19,7 +19,7 @@ public class RegisterService {
        if(isAlready==true) return false;
        if(isAlready==false) {
            unitOfWork.getUserRepo().getUsers().add(user);
-           return true;
        }
+       return true;
     }
 }
